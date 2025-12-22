@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skill Swap</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="frontend/css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="badge">⇄</div>
+      <span>Skill Swap</span>
+    </div>
+    <div class="actions">
+      <button class="btn" id="exportBtn">Export</button>
+      <button class="btn primary" id="newBtn">Offer a Skill</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1 class="title">Swap skills, not money.</h1>
+    <p class="subtitle">Post what you can teach and what you want to learn.</p>
+
+    <form id="searchForm" class="searchbar">
+      <input class="input" id="q" placeholder="Search skills" />
+      <select id="mode">
+        <option value="any">Any mode</option>
+        <option value="online">Online</option>
+        <option value="in-person">In-person</option>
+      </select>
+      <button class="btn">Search</button>
+      <button class="btn" type="button" id="clearSearch">Clear</button>
+    </form>
+
+    <div class="tags">
+      <button class="btn pill" data-quick="coding">#coding</button>
+      <button class="btn pill" data-quick="music">#music</button>
+      <button class="btn pill" data-quick="fitness">#fitness</button>
+    </div>
+  </section>
+
+  <section class="grid">
+
+    <article class="card">
+      <h3>Offer a skill</h3>
+      <form id="postForm">
+        <input class="input" name="name" placeholder="Your name" required />
+        <input class="input" name="offer" placeholder="Skill you teach" required />
+        <input class="input" name="want" placeholder="Skill you want" />
+        <textarea class="input" name="desc" rows="3" placeholder="Description"></textarea>
+
+        <div class="row">
+          <select id="location" class="input">
+            <option value="online">Online</option>
+            <option value="in-person">In-person</option>
+          </select>
+          <input class="input" name="city" placeholder="City" />
+        </div>
+
+        <div class="row">
+          <input class="input" name="contact" placeholder="Contact" required />
+          <input class="input" name="tags" placeholder="Tags (comma separated)" />
+        </div>
+
+        <button class="btn primary">Publish</button>
+      </form>
+    </article>
+
+    <aside class="card">
+      <h3>Browse skills</h3>
+      <div id="resultsCount"></div>
+      <div id="skills" class="list"></div>
+    </aside>
+
+  </section>
+
+</main>
+
+<template id="skillTemplate">
+  <div class="skill">
+    <div>
+      <h4></h4>
+      <div class="meta"></div>
+      <div class="tags" data-tags></div>
+    </div>
+    <div class="skill-actions">
+      <button class="btn" data-contact>Contact</button>
+      <button class="btn primary" data-swap>Swap</button>
+    </div>
+  </div>
+</template>
+
+<script src="frontend/js/app.js"></script>
+</body>
+</html>
